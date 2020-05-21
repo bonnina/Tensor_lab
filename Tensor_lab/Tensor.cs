@@ -20,5 +20,18 @@ namespace Tensor_lab
             Shape = shape;
             data = new double[Elements];
         }
+
+        public void Load(params double[] dataArr)
+        {
+            data = dataArr;
+        }
+
+        public void Fill(double value)
+        {
+            for(int i = 0; i < Elements; i++)
+            {
+                data[i] = value;
+            }
+        }
     }
 }
