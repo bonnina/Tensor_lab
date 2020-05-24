@@ -49,5 +49,35 @@ namespace Tensor_lab
                 data[i] = value;
             }
         }
+
+        /// <returns></returns>
+        public int[] GetStride()
+        {
+            var stride = new int[Shape.Length];
+            int acc = 1;
+
+            for (int i = Shape.Length -1; i >= 0; --i)
+            {
+                stride[i] = acc;
+                acc *= Shape[i];
+            }
+
+            return stride;
+        }
+
+        /// <param name="indices"></param>
+        /// <returns></returns>
+        public double GetIndex(params int[] indices)
+        {
+            long index = 0;
+            var strides = GetStride();
+
+            for (var i = 0; i < indices.Length; ++i)
+            {
+                index += indices[i] * strides[i];
+            }
+
+            return index;
+        }
     }
 }
