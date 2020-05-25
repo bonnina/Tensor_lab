@@ -50,6 +50,25 @@ namespace Tensor_lab
             }
         }
 
+        /// <param name="indices"></param>
+        /// <returns></returns>
+        public double this[params int[] indices]
+        {
+            get
+            {
+                long index = GetIndex();
+
+                return data[index];
+            }
+
+            set
+            {
+                long index = GetIndex();
+
+                data[index] = value;
+            }
+        }
+
         /// <returns></returns>
         public int[] GetStride()
         {
@@ -67,7 +86,7 @@ namespace Tensor_lab
 
         /// <param name="indices"></param>
         /// <returns></returns>
-        public double GetIndex(params int[] indices)
+        public long GetIndex(params int[] indices)
         {
             long index = 0;
             var strides = GetStride();
