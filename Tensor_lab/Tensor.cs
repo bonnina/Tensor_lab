@@ -8,7 +8,7 @@ namespace Tensor_lab
         private double[] data;
 
         /// <summary>
-        /// Shape of the dataset - a matrix, can be from 1D to 3D.
+        /// Shape of the dataset - a matrix.
         /// </summary>
         public int[] Shape { get; set; }
 
@@ -97,6 +97,23 @@ namespace Tensor_lab
             }
 
             return index;
+        }
+
+        /// <summary>
+        /// Print the dataset in a matrix form.
+        /// </summary>
+        public void Print()
+        {
+            for(int i = 0; i < Shape[0]; i++)
+            {
+                for(int j = 0; j < Shape[1]; j++)
+                {
+                    Console.WriteLine(this[i, j]);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+            }
         }
     }
 }
