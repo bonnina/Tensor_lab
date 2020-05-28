@@ -115,5 +115,24 @@ namespace Tensor_lab
                 Console.WriteLine();
             }
         }
+
+        #region operators
+
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Tensor operator +(Tensor a, Tensor b)
+        {
+            Tensor t = new Tensor(a.Shape);
+
+            for(int i = 0; i < a.Elements; i++)
+            {
+                t[i] = a[i] + b[i];
+            }
+
+            return t;
+        }
+
+        #endregion
     }
 }
