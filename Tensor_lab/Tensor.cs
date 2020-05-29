@@ -118,6 +118,9 @@ namespace Tensor_lab
 
         #region operators
 
+        /// <summary>
+        /// Adds two Tensor arrays
+        /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
@@ -128,6 +131,24 @@ namespace Tensor_lab
             for(int i = 0; i < a.Elements; i++)
             {
                 t[i] = a[i] + b[i];
+            }
+
+            return t;
+        }
+
+        /// <summary>
+        /// Subtracts two Tensor arrays
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Tensor operator -(Tensor a, Tensor b)
+        {
+            Tensor t = new Tensor(a.Shape);
+
+            for (int i = 0; i < a.Elements; i++)
+            {
+                t[i] = a[i] - b[i];
             }
 
             return t;
