@@ -50,6 +50,8 @@ namespace Tensor_lab
             }
         }
 
+        #region indexer
+
         /// <param name="indices"></param>
         /// <returns></returns>
         public double this[params int[] indices]
@@ -98,6 +100,8 @@ namespace Tensor_lab
 
             return index;
         }
+
+        #endregion
 
         /// <summary>
         /// Print the dataset in a matrix form.
@@ -185,6 +189,42 @@ namespace Tensor_lab
             for (int i = 0; i < a.Elements; i++)
             {
                 t[i] = a[i] / b[i];
+            }
+
+            return t;
+        }
+
+        /// <summary>
+        /// Check a == b between corresponding Tensor elements
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Tensor operator ==(Tensor a, Tensor b)
+        {
+            Tensor t = new Tensor(a.Shape);
+
+            for (int i = 0; i < a.Elements; i++)
+            {
+                t[i] = a[i] == b[i] ? 1 : 0;
+            }
+
+            return t;
+        }
+
+        /// <summary>
+        /// Check a != b between corresponding Tensor elements
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static Tensor operator !=(Tensor a, Tensor b)
+        {
+            Tensor t = new Tensor(a.Shape);
+
+            for (int i = 0; i < a.Elements; i++)
+            {
+                t[i] = a[i] != b[i] ? 1 : 0;
             }
 
             return t;
