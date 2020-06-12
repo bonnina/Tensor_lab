@@ -22,5 +22,17 @@ namespace Tensor_lab
 
             return tensor;
         }
+
+        public Tensor GetExp(Tensor t)
+        {
+            Tensor result = new Tensor(t.Shape);
+
+            for (int i = 0; i < t.Elements; i++)
+            {
+                result[i] = Math.Exp(t[i]);
+            }
+
+            return result;
+        }
     }
 }
