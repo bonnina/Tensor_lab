@@ -35,6 +35,18 @@ namespace Tensor_lab
             return result;
         }
 
+        public Tensor GetLog(Tensor t)
+        {
+            Tensor result = new Tensor(t.Shape);
+
+            for (int i = 0; i < t.Elements; i++)
+            {
+                result[i] = Math.Log(t[i]);
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Perform the dot product between two matrices. Only applicable to 2D Tensor. 
         /// </summary>
