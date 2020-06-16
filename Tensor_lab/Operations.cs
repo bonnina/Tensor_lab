@@ -23,6 +23,11 @@ namespace Tensor_lab
             return tensor;
         }
 
+        /// <summary>
+        /// Calculates the exponential of the tensor
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public Tensor GetExp(Tensor t)
         {
             Tensor result = new Tensor(t.Shape);
@@ -35,6 +40,11 @@ namespace Tensor_lab
             return result;
         }
 
+        /// <summary>
+        /// Calculates the logrithmic of the tensor
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public Tensor GetLog(Tensor t)
         {
             Tensor result = new Tensor(t.Shape);
