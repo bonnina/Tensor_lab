@@ -58,6 +58,23 @@ namespace Tensor_lab
         }
 
         /// <summary>
+        /// Calculates the square of the tensor
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public Tensor GetPow(Tensor t)
+        {
+            Tensor result = new Tensor(t.Shape);
+
+            for (int i = 0; i < t.Elements; i++)
+            {
+                result[i] = Math.Pow(t[i], 2);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Calculates the logrithmic of the tensor
         /// </summary>
         /// <param name="t"></param>
