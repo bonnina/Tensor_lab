@@ -120,5 +120,23 @@ namespace Tensor_lab
             }
             return r;
         }
+
+        /// <summary>
+        /// Transpose the matrix by turning all the rows into columns and vice-versa.
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public Tensor Pivot(Tensor t)
+        {
+            Tensor result = new Tensor(t.Shape);
+            for (int i = 0; i < t.Shape[0]; i++)
+            {
+                for (int j = 0; j < t.Shape[1]; j++)
+                {
+                    result[i, j] = t[j, i];
+                }
+            }
+            return result;
+        }
     }
 }
