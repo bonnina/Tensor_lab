@@ -267,5 +267,15 @@ namespace Tensor_lab
         }
 
         #endregion
+
+        /// <summary>
+        /// Transposes the axis of 2D array
+        /// </summary>
+        /// <returns></returns>
+        public Tensor Transpose()
+        {
+            Operations operations = new Operations();
+            return operations.Pivot(this);
+        }
     }
 }
