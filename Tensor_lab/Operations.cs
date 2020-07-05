@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tensor_lab
 {
-    class Operations
+    public class Operations
     {
         /// <summary>
         /// Creates a tensor with random data (declaring weights).
