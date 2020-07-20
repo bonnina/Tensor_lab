@@ -226,6 +226,13 @@ namespace Tensor_lab
             return t;
         }
 
+        public static Tensor operator ==(double a, Tensor b)
+        {
+            Tensor t_a = new Tensor(b.Shape);
+            t_a.Fill(a);
+            return t_a == b;
+        }
+
         /// <summary>
         /// Check a != b between corresponding Tensor elements
         /// </summary>
@@ -242,6 +249,13 @@ namespace Tensor_lab
             }
 
             return t;
+        }
+
+        public static Tensor operator !=(double a, Tensor b)
+        {
+            Tensor t_a = new Tensor(b.Shape);
+            t_a.Fill(a);
+            return t_a != b;
         }
 
         /// <summary>
