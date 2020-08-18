@@ -1,15 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using Tensor_lab.Layers.Activations;
+﻿using Tensor_lab.Layers.Activations;
 
 namespace Tensor_lab.Layers
 {
     public class FullyConnectedLayer : BaseLayer
     {
+        /// <summary>
+        /// Number of incoming input features
+        /// </summary>
         public int InputDim { get; set; }
+
+        /// <summary>
+        /// Number of neurons for the layer
+        /// </summary>
         public int OutNeurons { get; set; }
+
+        /// <summary>
+        /// Nonlinear activation function for the layer
+        /// </summary>
         public BaseActivation Activation { get; set; }
 
+        /// <param name="in">Number of incoming input features</param>
+        /// <param name="out">Number of neurons for this layer</param>
         public FullyConnectedLayer(int input_dim, int output_neurons, string act) : base("fc")
         {
             Parameters["w"] = GetRandom(input_dim, output_neurons);
@@ -17,6 +28,11 @@ namespace Tensor_lab.Layers
             OutNeurons = output_neurons;
             Activation = BaseActivation.Get(act);
         }
+
+        /// <summary>
+        /// Forward the input data by performing calculation across all the neurons, store it in the Output to be accessible by next layer.
+        /// </summary>
+        /// <param name="x"></param>
         public override void Forward(Tensor x)
         {
             base.Forward(x);
