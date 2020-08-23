@@ -2,10 +2,13 @@
 
 namespace Tensor_lab.Layers
 {
+    /// <summary>
+    /// Connects every neuron in one layer to every neuron in another layer. Every neuron does a basic linear operation  of Output = Weights * Input.
+    /// </summary>
     public class FullyConnectedLayer : BaseLayer
     {
         /// <summary>
-        /// Number of incoming input features
+        /// Number of incoming input features (e.g. column length of the matrix)
         /// </summary>
         public int InputDim { get; set; }
 
