@@ -106,18 +106,25 @@ namespace Tensor_lab
         /// <summary>
         /// Print the dataset in a matrix form.
         /// </summary>
-        public void Print()
+        public void Print(string title = "")
         {
-            for(int i = 0; i < Shape[0]; i++)
+            if (!string.IsNullOrWhiteSpace(title))
             {
-                for(int j = 0; j < Shape[1]; j++)
+                Console.WriteLine(title);
+            }
+
+            Console.WriteLine("---------{0}----------", string.Join(" x ", Shape));
+            for (int i = 0; i < Shape[0]; i++)
+            {
+                for (int j = 0; j < Shape[1]; j++)
                 {
-                    Console.WriteLine(this[i, j]);
+                    Console.Write(Math.Round(this[i, j], 2) + "  ");
                 }
 
                 Console.WriteLine();
-                Console.WriteLine();
             }
+
+            Console.WriteLine("-----------------------\n\n");
         }
 
         #region operators
