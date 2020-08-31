@@ -138,5 +138,23 @@ namespace Tensor_lab
             }
             return result;
         }
+
+        /// <summary>
+        /// Clip the values in tensor between min and max values
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public Tensor Clip(Tensor x, double min, double max)
+        {
+            Tensor result = new Tensor(x.Shape);
+            for (int i = 0; i < x.Elements; i++)
+            {
+                result[i] = (x[i] < min) ? min : (x[i] > max) ? max : x[i];
+            }
+
+            return result;
+        }
     }
 }
