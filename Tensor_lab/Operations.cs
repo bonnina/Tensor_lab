@@ -156,5 +156,21 @@ namespace Tensor_lab
 
             return result;
         }
+
+        /// <summary>
+        /// Round the values in the tensor
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public Tensor Round(Tensor x)
+        {
+            Tensor result = new Tensor(x.Shape);
+            for (int i = 0; i < x.Elements; i++)
+            {
+                result[i] = Math.Round(x[i]);
+            }
+
+            return result;
+        }
     }
 }
