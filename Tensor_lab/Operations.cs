@@ -6,6 +6,8 @@ namespace Tensor_lab
 {
     public class Operations
     {
+        public double Epsilon = 1e-7;
+
         /// <summary>
         /// Creates a tensor with random data (declaring weights).
         /// </summary>
