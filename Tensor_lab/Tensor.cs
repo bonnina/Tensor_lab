@@ -29,6 +29,14 @@ namespace Tensor_lab
             data = new double[Elements];
         }
 
+        public double[] Data
+        {
+            get
+            {
+                return data;
+            }
+        }
+
         /// <summary>
         /// Helper function to load the data intos the Tensor
         /// </summary>
