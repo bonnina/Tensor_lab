@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Tensor_lab
@@ -170,6 +171,62 @@ namespace Tensor_lab
             for (int i = 0; i < x.Elements; i++)
             {
                 result[i] = Math.Round(x[i]);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Find the mean value of the tensor accross axis or as a whole
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="axis"></param>
+        /// <returns></returns>
+        public Tensor Mean(Tensor x, uint? axis = null)
+        {
+            Tensor result = null;
+
+            if (axis.HasValue)
+            {
+                List<double> meanValues = new List<double>();
+                if (axis.Value == 1)
+                {
+                    result = new Tensor(x.Shape[0], 1);
+                    for (int i = 0; i < x.Shape[0]; i++)
+                    {
+                        double total = 0;
+                        for (int j = 0; j < x.Shape[1]; j++)
+                        {
+                            total += x[i, j];
+                        }
+
+                        meanValues.Add(total / x.Shape[1]);
+                    }
+
+                }
+                else if (axis.Value == 0)
+                {
+                    result = new Tensor(1, x.Shape[1]);
+                    for (int i = 0; i < x.Shape[1]; i++)
+                    {
+                        double total = 0;
+                        for (int j = 0; j < x.Shape[0]; j++)
+                        {
+                            total += x[i, j];
+                        }
+
+                        meanValues.Add(total / x.Shape[0]);
+                    }
+                }
+
+
+
+                result.Load(meanValues.ToArray());
+            }
+            else
+            {
+                result = new Tensor(1, 1);
+                result.Load(x.Data.Average());
             }
 
             return result;
