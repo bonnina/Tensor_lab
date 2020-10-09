@@ -201,6 +201,24 @@ namespace Tensor_lab
             return t_a - b;
         }
 
+        /// <summary>
+        /// Negates the values in the tensor
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Tensor operator -(Tensor a)
+        {
+            Tensor t = new Tensor(a.Shape);
+
+            for (int i = 0; i < a.Elements; i++)
+            {
+                t[i] = -a[i];
+            }
+
+            return t;
+        }
+
+
 
         /// <summary>
         /// Multiplies two Tensor arrays
