@@ -24,6 +24,16 @@ namespace Tensor_lab.Layers
         /// </summary>
         public Dictionary<string, Tensor> Parameters { get; set; }
 
+        /// <summary>
+        /// Gradient of the Input
+        /// </summary>
+        public Tensor InputGrad { get; set; }
+
+        /// <summary>
+        /// List of all parameters gradients calculated during back propagation.
+        /// </summary>
+        public Dictionary<string, Tensor> Grads { get; set; }
+
         public BaseLayer(string name)
         {
             Name = name;
