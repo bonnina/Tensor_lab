@@ -48,5 +48,23 @@ namespace Tensor_lab.Layers
         {
             Input = t;
         }
+
+        /// <summary>
+        /// Calculate the gradient of the layer. Usually a prtial derivative implemenation of the forward algorithm
+        /// </summary>
+        /// <param name="grad"></param>
+        public virtual void Backward(Tensor grad) {}
+
+        public void PrintParams(bool printGrads = true)
+        {
+            foreach (var item in Parameters)
+            {
+                item.Value.Print(string.Format("Parameter: {0}", item.Key));
+                if (printGrads && Grads.ContainsKey(item.Key))
+                {
+                    Grads[item.Key].Print(string.Format("Grad: {0}", item.Key));
+                }
+            }
+        }
     }
 }
