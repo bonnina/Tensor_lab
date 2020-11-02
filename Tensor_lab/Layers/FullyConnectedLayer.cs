@@ -46,5 +46,23 @@ namespace Tensor_lab.Layers
                 Output = Activation.Output;
             }
         }
+
+        /// <summary>
+        /// Calculate the gradient of the layer. Usually a prtial derivative implemenation of the forward algorithm
+        /// </summary>
+        /// <param name="grad"></param>
+        public override void Backward(Tensor grad)
+        {
+            // Activation was invoked in Forward after calculating output. 
+            // In backpropagation we need to reverse the flow, so Activation Backward will be invoked first then the layer gradient code.
+            if (Activation != null)
+            {
+                Activation.Backward(grad);
+                grad = Activation.InputGrad;
+            }
+
+            InputGrad = GetDotProduct(grad, Parameters["w"].Transpose());
+            Grads["w"] = GetDotProduct(Input.Transpose(), grad);
+        }
     }
 }
