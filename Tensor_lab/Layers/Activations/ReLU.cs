@@ -12,5 +12,10 @@ namespace Tensor_lab.Layers.Activations
             Tensor matches = x > 0;
             Output = matches * x;
         }
+
+        public override void Backward(Tensor grad)
+        {
+            InputGrad = grad * (Input > 0);
+        }
     }
 }
