@@ -13,5 +13,10 @@ namespace Tensor_lab.CostFuncs
             output = Mean(-(labels * GetLog(output) + (1 - labels) * GetLog(1 - output)));
             return output;
         }
+
+        public override Tensor Backward(Tensor preds, Tensor labels)
+        {
+            return (preds - labels) / (preds * (1 - preds));
+        }
     }
 }

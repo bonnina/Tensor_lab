@@ -14,5 +14,6 @@ namespace Tensor_lab.CostFuncs
         }
 
         public abstract Tensor Forward(Tensor preds, Tensor labels);
+        public abstract Tensor Backward(Tensor preds, Tensor labels);
     }
 }
