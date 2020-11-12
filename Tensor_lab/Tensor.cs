@@ -238,6 +238,20 @@ namespace Tensor_lab
             return t;
         }
 
+        public static Tensor operator *(Tensor a, double b)
+        {
+            Tensor t_b = new Tensor(a.Shape);
+            t_b.Fill(b);
+            return a * t_b;
+        }
+
+        public static Tensor operator *(double a, Tensor b)
+        {
+            Tensor t_a = new Tensor(b.Shape);
+            t_a.Fill(a);
+            return t_a * b;
+        }
+
         /// <summary>
         /// Divides two Tensor arrays
         /// </summary>
