@@ -15,5 +15,11 @@ namespace Tensor_lab.CostFuncs
             var error = preds - labels;
             return Mean(GetPow(error));
         }
+
+        public override Tensor Backward(Tensor preds, Tensor labels)
+        {
+            double norm = 2 / preds.Shape[0];
+            return norm * (preds - labels);
+        }
     }
 }
